@@ -1,0 +1,8 @@
+- xuất ra hóa đơn
+-Thống kê tài chính
+-Chat giữa các nhân viên trong siêu thị
+
+-Quản lý ca làm việc của nhân viên
+-Số giờ làm việc
+tiền lương, bài viết
+- Quản lý đăng thông báo

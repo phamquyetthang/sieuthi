@@ -1,0 +1,73 @@
+*{
+    margin: 0px;
+}
+.background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../image/5.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.8; */
+}
+h1{
+    position: absolute;
+    font-family: 'Calistoga', cursive;
+    font-size: 280%;
+    text-align: center;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: #0481BF;
+    top: 100px;
+}
+
+.login{
+    font-family: 'Calistoga', cursive;
+    position: fixed;
+    width: 315px;
+    height: 250px;
+    z-index: 100;
+    background-color: #eee;
+    border: gray 1px solid;
+    border-radius: 8px;
+    top: 170px;
+    left: 500px;
+    padding: 15px;
+}
+.oinput{
+    width: 250px;
+    height: 45px;
+    border-radius: 5px;
+    padding: 10px;
+    border: hidden;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 120%;
+}
+.osubmit{
+    width: 250px;
+    height: 45px;
+    border-radius: 5px;
+    padding: 10px;
+    border: hidden;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 120%;
+    background-color: #0481BF;
+    cursor: pointer;
+}
+.manChan{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #000;
+	filter: opacity(0.7);
+    z-index: 100;
+    display: block;
+}
+#login{
+    display: block;
+}
