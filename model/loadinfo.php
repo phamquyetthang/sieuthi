@@ -20,6 +20,11 @@ while ($row = $ket_qua->fetch_array(MYSQLI_ASSOC)) {
     $empfini=$row['finish'];
     $empfirst=$row['firstday'];
     $position=$row['position'];
+    if($position==1){
+        $chucvu="Nhân viên";
+    }else{
+        $chucvu="Quản lý";
+    }
 }
 //Đóng kết nối database tintuc
 // $connect->close();

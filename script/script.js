@@ -34,7 +34,16 @@ function openTabs(tabname){
 function delManche(el, classname){
    el.setAttribute('class', classname)
 }
-
+function openAny(idtabs){
+   document.getElementById(idtabs).style.display='block';
+   console.log("open any tab");
+   addManche(manChan, 'manChan');
+}
+function closeAny(idtabs){
+   document.getElementById(idtabs).style.display='none';
+   console.log("close any tab");
+   delManche(manChan, '');
+}
  document.getElementById("creatus").onclick=function(){
     document.getElementById("creatusform").style.display="block";
     addManche(manChan, 'manChan');

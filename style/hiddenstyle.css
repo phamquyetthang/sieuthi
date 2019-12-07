@@ -53,3 +53,16 @@
     background-color: #0481BF;
     font-family: 'Calistoga', cursive;
 }
+#xemavt{
+    width: 450px;
+    height: 600px;
+    position: fixed;
+    top:20px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    border: #0481BF solid 1px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+}

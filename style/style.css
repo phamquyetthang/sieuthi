@@ -104,7 +104,7 @@ button{
 .contentnew{
     position: relative;
     border: 1px solid gray;
-    width: 710px;
+    width: 90%;
     margin: 25px;
     margin-bottom: 0px;
    
@@ -345,13 +345,66 @@ button{
     display: block;
 }
 
-
-
-
-
-
-
-
+.leftinfo{
+    position: relative;
+    width: 500px;
+    height: 100%;
+    background-color: aqua;
+    float: left;
+}
+.rightinfo{
+    position: relative;
+    width: 590px;
+    height: 100%;
+    background-color: blueviolet;
+}
+.avtinfo{
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid gray;
+    margin-top: 15px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.menuimg{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 260px;
+    height: 0px;
+    /* border-top: 1px solid gray; */
+    background-color: #eee;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    overflow: hidden;
+    transition: 1s;
+}
+.menuimg button{
+    margin-top: 5px;
+    margin-left: 60px;
+    display: block;
+    font-size: 24px;
+}
+.avtinfo:hover .menuimg{
+    height: 80px;
+	background-color: #00a1f2
+}
+.moreinfo{
+    position: relative;
+    margin-top: 15px;
+    width: 500px;
+    border: #00a1f2 1px solid;
+}
+.moreinfo div{
+    display: inline-block;
+    width: 230px;
+    height: 42px;
+    border-bottom: 1px solid gray;
+    margin-top: 5px;
+}
 
 
 

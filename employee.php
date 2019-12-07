@@ -185,6 +185,58 @@ require_once ("model/loadinfo.php");
             
     </div>
 
+    
+    <div class="right scroll" id="infotab">
+        <div class="leftinfo">
+            <div class="avtinfo">
+                <?php
+                echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
+                ?>
+            <div class="menuimg">
+                <button >Thay đổi</button>
+                <button onclick="openAny('xemavt')">Xem ảnh</button>
+            </div>
+            </div>
+            <div class="moreinfo">
+                <div><span>Họ và tên:</span><br>
+                    <?php
+                    echo($empfull);
+                    ?>
+                </div>
+                <div><span>Tên tài khoản:</span><br>
+                <?php
+                    echo($empname);
+                    ?>
+                </div>
+                <div><span>Chức vụ:</span><br>
+                <?php
+                    echo($chucvu);
+                    ?>
+                </div>
+                <div><span>Ca làm việc:</span><br>
+                <?php 
+                echo("Từ: $empstart đến: $empfini")
+                ?>
+                </div>
+                <div><span>Số điện thoại:</span><br>
+                <?php
+                echo($empsdt);
+                ?>
+                </div>
+                <div><span>Địa chỉ email:</span><br>
+                <?php
+                echo($empemail);
+                ?>
+                </div>
+            </div>
+        </div>
+        <div class="rightinfo scroll">
+        <?php
+        require_once ("model/loadmynews.php");
+        ?>
+        </div>
+    </div>
+
     <div class="creatusform" id="creatusform">
         <button class="exit" onclick="exit('creatusform')">x</button>
         <form action="model/postnews.php" method="post">
@@ -195,13 +247,18 @@ require_once ("model/loadinfo.php");
             <input type="submit" value="Đăng" name="postnews" id="postn">
         </form>
     </div>
-
-    <div class="right scroll" id="infotab">
-
-
+    <div id="xemavt">
+    <button class="exit" onclick="closeAny('xemavt')">x</button>
+    <?php
+    echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
+    ?>
     </div>
 
+    <div id="doiavt">
+        <form action="doiavt.php" method="post">
 
+        </form>
+    </div>
     
 </body>
 <script src="script/script.js"></script>
