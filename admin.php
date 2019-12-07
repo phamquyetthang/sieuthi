@@ -18,6 +18,9 @@ require_once ("model/loadinfo.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Super Admin</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+    </style>
     <link rel="stylesheet" href="style/adminstyle.css">
 </head>
 <body>

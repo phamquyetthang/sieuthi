@@ -18,9 +18,14 @@ require_once ("model/loadinfo.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Super Thị</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+    </style>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/hiddenstyle.css">
 </head>
 <body>
+    <div  id="manChan"></div>
     <div class="left">
         <div class="user">
             <div class="avtemp">
@@ -65,7 +70,7 @@ require_once ("model/loadinfo.php");
 
             </div>
 
-            <button class="creatus">Đăng bài</button>
+            <button class="creatus cu-p" id="creatus">Đăng bài</button>
             <div class="locnews">
                 <button class="locnewsc">Thông báo</button>
                 <button class="locnewsc">Bài viết</button>
@@ -187,6 +192,20 @@ require_once ("model/loadinfo.php");
         </div>
             
     </div>
+
+    <div class="creatusform" id="creatusform">
+        <button class="exit" onclick="exit('creatusform')">x</button>
+        <form action="model/postnews.php" method="post">
+            <input type="text" name="titlenews" id="tieuden" placeholder="Tiêu đề" required="required">
+            <textarea name="contentnews" id="noidungn" cols="30" rows="10" placeholder="Nội dung" required="required"></textarea>
+            <span>Ảnh minh họa:</span>
+            <input type="file" name="imgnews" id="anhn">
+            <input type="submit" value="Đăng" name="postnews" id="postn">
+        </form>
+    </div>
+
+
+
 
     <script src="script/script.js"></script>
 </body>

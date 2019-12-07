@@ -28,6 +28,29 @@ function openTabs(tabname){
  }
 
 
+ function addManche(el, classname){
+   el.setAttribute('class', classname);
+}
+function delManche(el, classname){
+   el.setAttribute('class', classname)
+}
+
+ document.getElementById("creatus").onclick=function(){
+    document.getElementById("creatusform").style.display="block";
+    addManche(manChan, 'manChan');
+    console.log("222222");
+ };
+ function exit(){
+    document.getElementById("creatusform").style.display='none';
+    delManche(manChan, '');
+ }
+
+
+
+
+
+
+
  setInterval(
     function(){
        var today = new Date();
@@ -63,3 +86,4 @@ function openTabs(tabname){
        }
     },1000
 );
+
