@@ -44,7 +44,7 @@ require_once ("model/loadinfo.php");
         <button class="multichoose" onclick="openTabs('hometab')">Trang chủ</button>
         <button class="multichoose" onclick="openTabs('saletab')">Bán hàng</button>
         <button class="multichoose" onclick="openTabs('reprotab')">Trả hàng</button>
-        <button class="multichoose" onclick="openTabs('reprotab')">Bản thân</button>
+        <button class="multichoose" onclick="openTabs('infotab')">Bản thân</button>
 
 
         <form action="inorout/out.php" method="post">
@@ -52,31 +52,23 @@ require_once ("model/loadinfo.php");
         </form>
     </div>
     <div class="right" id="hometab">
-        <div class="news">
-            <div class="contentnew">
-                    Phát biểu sau trận đấu kịch tính với Thái Lan, 
-                    HLV Park Hang-seo cho biết: "Xin cảm ơn các cầu thủ và người hâm mộ. 
-                    Chỉ có trận hòa nhưng chúng tôi đã giành vé vào bán kết.
-                    Cuộc chạm trán với Singapore và Thái Lan đều rất khó khăn. 
-                    Ngày hôm nay, U22 Việt Nam còn bị dẫn trước đến 2 bàn.
-
-            </div>
-            <div class="contentnew">
-                    Phát biểu sau trận</br> đấu kịch tính với Thái Lan, 
-                    HLV Park Hang-seo</br> cho biết: "Xin cảm ơn các</br> cầu thủ và người hâm mộ. 
-                    Chỉ có trận hòa nhưng</br> chúng tôi đã giành</br> vé vào bán kết.
-                    Cuộc chạm trán với </br>Singapore và Thái Lan đều</br> rất khó khăn. 
-                    Ngày hôm nay, U22 Việt Nam còn bị dẫn</br> trước đến 2 bàn.
-
-            </div>
-
-            <button class="creatus cu-p" id="creatus">Đăng bài</button>
-            <div class="locnews">
-                <button class="locnewsc">Thông báo</button>
-                <button class="locnewsc">Bài viết</button>
-            </div>
-            
+       
+        <div class="news scroll" id="news1">
+            <?php
+                require_once ("model/loadnews1.php");
+            ?>
         </div>
+        <div class="news scroll" id="news2">
+            <?php
+            require_once ("model/loadnew2.php")
+            ?>
+        </div>
+        <div class="locnews">
+            <button class="locnewsc" onclick="openNews('news1')">Thông báo</button>
+            <button class="locnewsc" onclick="openNews('news2')">Bài viết</button>
+        </div>
+        
+        <button class="creatus cu-p" id="creatus">Đăng bài</button>
         <div class="oclock">
                 <div id="clock"></div>
         </div>
@@ -204,9 +196,13 @@ require_once ("model/loadinfo.php");
         </form>
     </div>
 
+    <div class="right scroll" id="infotab">
 
 
+    </div>
 
-    <script src="script/script.js"></script>
+
+    
 </body>
+<script src="script/script.js"></script>
 </html>

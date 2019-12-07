@@ -40,6 +40,14 @@ function delManche(el, classname){
     addManche(manChan, 'manChan');
     console.log("222222");
  };
+ function openNews(tabnews){
+   var x = document.getElementsByClassName("news");
+   for(var i=0; i<x.length; i++){
+       x[i].style.display ="none";
+   }
+   console.log("open news");
+   document.getElementById(tabnews).style.display="block";
+}
  function exit(){
     document.getElementById("creatusform").style.display='none';
     delManche(manChan, '');

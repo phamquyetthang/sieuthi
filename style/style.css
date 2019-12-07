@@ -89,32 +89,86 @@ button{
 .news{
     position: absolute;
     top: 0px;
-    width: 758px;
+    width: 757px;
     /* background-color: blue; */
     border-right: 1px solid gray;
     overflow-y: auto;
-    height: 655px;
+    height: 560px;
+    padding-bottom: 100px;
     padding-top: 30px;
+    display: none;
+}
+#news1{
+    display: block;
 }
 .contentnew{
+    position: relative;
     border: 1px solid gray;
     width: 710px;
     margin: 25px;
     margin-bottom: 0px;
    
 }
-.contentnew::-webkit-scrollbar {
-	width: 6px;
-	background-color: #F5F5F5;
-	z-index: 1;
+.headnews{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-bottom: gray 1px solid;
 }
-.contentnew::-webkit-scrollbar-thumb {
-	border-radius: 2px;
-    background-color: gray;
+.avtposter{ 
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid  gray;
+    overflow: hidden;
 }
-.contentnew::-webkit-scrollbar-track {
-    background-color: #eee;
-} 
+.nameposter{
+    position: absolute;
+    left: 50px;
+    width: 200px;
+    height: 18px;
+    border: 1px solid  gray;
+}
+.timepost{
+    position: absolute;
+    left: 50px;
+    bottom: 0px;
+    width: 200px;
+    height: 18px;
+    border: 1px solid  gray;
+}
+.titlenews{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding: 3px;
+    border-bottom: gray 1px solid;
+    font-size: 20px;
+    font-weight: bold;
+}
+.contentnews{
+    position: relative;
+    width: 100%;
+    min-height: 40px;
+    padding: 3px;
+    border-bottom: gray 1px solid;
+    font-size: 20px;
+    font-weight: bold;
+}
+.imagenews{
+    position: relative;
+    float: right;
+    width: 260px;
+    height: 260px;
+    padding: 3px;
+    border: gray 1px solid;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+}
 .creatus{
     position: fixed;
     top: 5px;
@@ -122,6 +176,7 @@ button{
     width: 90px;
     height: 40px;
     border-radius: 8px;
+    z-index: 50;
 }
 .locnews{
     position: fixed;
