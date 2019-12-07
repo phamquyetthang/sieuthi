@@ -1,0 +1,128 @@
+
+.headsale{
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    width: 1085px;
+    height: 50px;
+    /* background-color: aqua; */
+    border-bottom: 1px solid gray;
+    z-index: 2;
+}
+.menusale{
+    width: 140px;
+    height: 100%;
+    float: left;
+}
+.contsale{
+    position: relative;
+    display: inline-block;
+    margin-left: 635px;
+    margin-top: 59px;
+    width: 320px;
+    overflow: auto;
+    padding-top: 10px;
+}
+.inputone{
+    width: 130px;
+    height: 45px;
+    display: inline-block;
+}
+.ipmsp{
+    width: 126px;
+    height: 20px;
+}
+.ipsl{
+    width: 80px;
+    height: 20px;
+}
+.infobill{
+    position: absolute;
+    margin: 30px;
+    margin-top: 150px;
+    margin-bottom: 0px;
+    width: 600px;
+    height: 350px;
+    background-color: aqua;
+    z-index: 1;
+    overflow: visible;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.imgpro{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    float: left;
+}
+.rightifb{
+    width: 300px;
+    margin-left: 325px;
+}
+.infone{
+    margin-top: 25px;
+    width: 130px;
+    height: 80px;
+    /* border: 1px solid gray; */
+    display: inline-block;
+}
+.infone div{
+    width: 128px;
+    height: 50px;
+    border: 1px solid gray;
+}
+.checkhang{
+    position: fixed;
+    width: 100px;
+    margin-left: 25px;
+    height: 50px;
+    font-size: 24px;
+}
+.thanhtoan{
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    width: 120px;
+    height: 50px;
+}
+.addbill{
+    width: 30px;
+    height: 30px;
+    border: 1px solid gray;
+    position: fixed;
+    top: 80px;
+    right: 200px;
+    font-size: 24px;
+    font-weight: 700;
+    color: aqua;
+}
+.taohoadon{
+    width: 100px;
+    height: 40px;
+    border: 1px solid gray;
+    position: fixed;
+    top: 70px;
+    right: 50px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.hoadon{
+    width:220px;
+    height: 400px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    position: fixed;
+    right: 10px;
+    top: 155px;
+}
+.saletabcon{
+    display: none;
+}
+#saling{
+    display: block;
+}

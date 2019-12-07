@@ -22,6 +22,8 @@ require_once ("model/loadinfo.php");
     @import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
     </style>
     <link rel="stylesheet" href="style/adminstyle.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/hiddenstyle.css">
 </head>
 <body>
     <div class="left">
@@ -44,32 +46,24 @@ require_once ("model/loadinfo.php");
         <button class="multichoose" onclick="openTabs('reprotab')">Sản phẩm</button>
         <button class="multichoose" onclick="openTabs('')">Khách hàng</button>
         <button class="multichoose" onclick="openTabs('')">Báo cáo doanh thu</button>
-        <button class="multichoose" onclick="openTabs('')">Bản thân</button>
+        <button class="multichoose" onclick="openTabs('infotab')">Bản thân</button>
 
         <form action="inorout/out.php" method="post">
             <input type="submit" value="Đăng xuất" class="logout" name="logout">
         </form>
     </div>
     <div class="right" id="hometab">
-        <div class="news">
-            <div class="contentnew">
-                    Phát biểu sau trận đấu kịch tính với Thái Lan, 
-                    HLV Park Hang-seo cho biết: "Xin cảm ơn các cầu thủ và người hâm mộ. 
-                    Chỉ có trận hòa nhưng chúng tôi đã giành vé vào bán kết.
-                    Cuộc chạm trán với Singapore và Thái Lan đều rất khó khăn. 
-                    Ngày hôm nay, U22 Việt Nam còn bị dẫn trước đến 2 bàn.
-
-            </div>
-            <div class="contentnew">
-                    Phát biểu sau trận</br> đấu kịch tính với Thái Lan, 
-                    HLV Park Hang-seo</br> cho biết: "Xin cảm ơn các</br> cầu thủ và người hâm mộ. 
-                    Chỉ có trận hòa nhưng</br> chúng tôi đã giành</br> vé vào bán kết.
-                    Cuộc chạm trán với </br>Singapore và Thái Lan đều</br> rất khó khăn. 
-                    Ngày hôm nay, U22 Việt Nam còn bị dẫn</br> trước đến 2 bàn.
-
-            </div>
-
-            <button class="creatus">Đăng bài</button>
+        <div class="news scroll" id="news1">
+            <?php
+                require_once ("model/loadnews1.php");
+            ?>
+        </div>
+        <div class="news scroll" id="news2">
+            <?php
+            require_once ("model/loadnew2.php")
+            ?>
+        </div>
+        <button class="creatus cu-p" id="creatus">Đăng bài</button>
             <div class="locnews">
                 <button class="locnewsc">Thông báo</button>
                 <button class="locnewsc">Bài viết</button>
@@ -79,8 +73,14 @@ require_once ("model/loadinfo.php");
         <div class="oclock">
             <div id="oclock"></div>
         </div>
-        <div class="chattab">
-
+        <div class="chat">
+            <div class="messages scroll">
+                <div class="message">
+                    <a href="#">phucchi</a>
+                    <p>Tin nhan ne</p>
+                </div>
+            </div>
+            <textarea class="entry" placeholder="gì đó" name="" cols="30" rows="10"></textarea>
         </div>
     </div>
 
@@ -122,7 +122,81 @@ require_once ("model/loadinfo.php");
             </div>
             
     </div>
+    <div class="right scroll" id="infotab">
+        <div class="leftinfo">
+            <div class="avtinfo">
+                <?php
+                echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
+                ?>
+            <div class="menuimg">
+                <button >Thay đổi</button>
+                <button onclick="openAny('xemavt')">Xem ảnh</button>
+            </div>
+            </div>
+            <div class="moreinfo">
+                <div><span>Họ và tên:</span><br>
+                    <?php
+                    echo($empfull);
+                    ?>
+                </div>
+                <div><span>Tên tài khoản:</span><br>
+                <?php
+                    echo($empname);
+                    ?>
+                </div>
+                <div><span>Chức vụ:</span><br>
+                <?php
+                    echo($chucvu);
+                    ?>
+                </div>
+                <div><span>Ca làm việc:</span><br>
+                <?php 
+                echo("Từ: $empstart đến: $empfini")
+                ?>
+                </div>
+                <div><span>Số điện thoại:</span><br>
+                <?php
+                echo($empsdt);
+                ?>
+                </div>
+                <div><span>Địa chỉ email:</span><br>
+                <?php
+                echo($empemail);
+                ?>
+                </div>
+            </div>
+        </div>
+        <div class="rightinfo scroll">
+        <?php
+        require_once ("model/loadmynews.php");
+        ?>
+        </div>
+    </div>
 
+    <div class="creatusform" id="creatusform">
+        <button class="exit" onclick="exit('creatusform')">x</button>
+        <form action="model/postnews.php" method="post">
+            <input type="text" name="titlenews" id="tieuden" placeholder="Tiêu đề" required="required">
+            <textarea name="contentnews" id="noidungn" cols="30" rows="10" placeholder="Nội dung" required="required"></textarea>
+            <span>Ảnh minh họa:</span>
+            <input type="file" name="imgnews" id="anhn">
+            <input type="submit" value="Đăng" name="postnews" id="postn">
+        </form>
+    </div>
+    <div id="xemavt">
+    <button class="exit" onclick="closeAny('xemavt')">x</button>
+    <?php
+    echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
+    ?>
+    </div>
+
+    <div id="doiavt">
+        <form action="doiavt.php" method="post">
+
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script/chat.js"></script>
     <script src="script/adscript.js"></script>
 </body>
 </html>

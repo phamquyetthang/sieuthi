@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 06, 2019 lúc 10:19 AM
+-- Thời gian đã tạo: Th12 07, 2019 lúc 03:28 PM
 -- Phiên bản máy phục vụ: 10.4.8-MariaDB
 -- Phiên bản PHP: 7.3.11
 
@@ -36,6 +36,31 @@ CREATE TABLE `banhang` (
   `id_nv` int(11) NOT NULL,
   `soluong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `id_emp` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `chat`
+--
+
+INSERT INTO `chat` (`id`, `id_emp`, `message`, `timestamp`) VALUES
+(1, 10, 'l&ocirc;', '2019-12-07 13:44:20'),
+(2, 10, 'hi', '2019-12-07 13:45:51'),
+(3, 10, 'em ơi nếu c&ograve;n hiểu nhau', '2019-12-07 13:46:18'),
+(4, 10, 'l&ocirc;', '2019-12-07 13:48:50'),
+(5, 10, 'Ng&agrave;y 7/12 tại s&acirc;n bay quốc tế Nội B&agrave;i, Tổng c&ocirc;ng ty Quản l&yacute; bay Việt Nam (VATM) tổ chức lễ đ&oacute;n chuyến bay thứ 900.000 trong năm 2019. Ng&agrave;nh h&agrave;ng kh&ocirc;ng Việt Nam dự kiến kết th&uacute;c năm nay với gần 1 triệu chuyến bay được quản l&yacute;, điều h&agrave;nh.', '2019-12-07 13:50:00'),
+(6, 10, 'l&ocirc;', '2019-12-07 14:18:35');
 
 -- --------------------------------------------------------
 
@@ -79,8 +104,24 @@ CREATE TABLE `news` (
   `id_nv` int(11) NOT NULL,
   `title` text NOT NULL,
   `content` text NOT NULL,
-  `img` text NOT NULL
+  `img` text DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `news`
+--
+
+INSERT INTO `news` (`id`, `id_nv`, `title`, `content`, `img`, `time`) VALUES
+(1, 4, 'hello', '0', 'library/img/mamnhi1.jpg', '2019-12-07 01:55:12'),
+(3, 4, 'hello 2', '0', NULL, '2019-12-07 01:55:12'),
+(4, 4, 'hello 3', '0', NULL, '2019-12-07 01:55:12'),
+(5, 4, 'hello 4', '0', 'library/img/oreo1.jpg', '2019-12-07 01:55:12'),
+(6, 4, 'hello 5', '0', NULL, '2019-12-07 01:55:12'),
+(7, 4, 'hello 7', '0', NULL, '2019-12-07 01:55:12'),
+(8, 4, 'hello world', '0', NULL, '2019-12-07 01:55:12'),
+(9, 4, 'hello', '0', NULL, '2019-12-07 01:55:12'),
+(10, 4, 'hello 8', 'Check check check', NULL, '2019-12-07 01:55:12');
 
 -- --------------------------------------------------------
 
@@ -99,24 +140,25 @@ CREATE TABLE `nhanvien` (
   `start` time NOT NULL,
   `finish` time NOT NULL,
   `firstday` datetime NOT NULL,
-  `position` int(11) NOT NULL DEFAULT 1
+  `position` int(11) NOT NULL DEFAULT 1,
+  `salary` int(11) NOT NULL DEFAULT 100000
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`id`, `accname`, `fullname`, `avt`, `sdt`, `email`, `password`, `start`, `finish`, `firstday`, `position`) VALUES
-(1, 'phamthang', 'Phạm Quyết Thắng', 'library/img/vic1.jpg', '0388811206', 'quyetthang.phucchi@gmail.com', 17021033, '07:00:00', '12:00:00', '2019-12-06 07:00:00', 2),
-(2, 'suphit', 'Suphit Phomachan', 'library/img/suphit1.jpg', '+84*********', '***@gmail.com', 123456, '12:00:00', '18:00:00', '2019-12-06 12:00:00', 2),
-(3, 'ducphuc', 'Chu Đức Phúc', 'library/img/phuc1.jpg', '+84*********', '***@gmail.com', 456789, '18:00:00', '23:30:00', '2019-12-06 18:00:00', 2),
-(4, 'anhson', 'Đặng Anh Sơn', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 987654, '07:00:00', '12:00:00', '2019-12-06 07:00:00', 1),
-(5, 'vumay', 'Vũ Thị Mây', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 123456, '12:00:00', '18:00:00', '2019-12-06 12:00:00', 1),
-(6, 'thuhoai', 'Phạm Thu Hoài', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 741852, '18:00:00', '23:30:00', '2019-12-06 18:30:00', 1),
-(7, 'quangthuong', 'Tạ Quang Thưởng', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 456789, '07:00:00', '12:00:00', '2019-12-06 07:00:00', 1),
-(8, 'duchuynh', 'Nguyễn Đức Huynh', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 987654, '12:00:00', '18:00:00', '2019-12-06 12:00:00', 1),
-(9, 'hoaithanh', 'Ngô Thị Hoài Thanh', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 2, '18:00:00', '23:30:00', '2019-12-06 18:00:00', 1),
-(10, 'baove', 'Bảo Văn Vệ', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 467913, '07:00:00', '23:30:00', '2019-12-06 07:00:00', 1);
+INSERT INTO `nhanvien` (`id`, `accname`, `fullname`, `avt`, `sdt`, `email`, `password`, `start`, `finish`, `firstday`, `position`, `salary`) VALUES
+(1, 'phamthang', 'Phạm Quyết Thắng', 'library/img/vic1.jpg', '0388811206', 'quyetthang.phucchi@gmail.com', 17021033, '07:00:00', '12:00:00', '2019-12-06 07:00:00', 2, 100000),
+(2, 'suphit', 'Suphit Phomachan', 'library/img/suphit1.jpg', '+84*********', '***@gmail.com', 123456, '12:00:00', '18:00:00', '2019-12-06 12:00:00', 2, 100000),
+(3, 'ducphuc', 'Chu Đức Phúc', 'library/img/phuc1.jpg', '+84*********', '***@gmail.com', 456789, '18:00:00', '23:30:00', '2019-12-06 18:00:00', 2, 100000),
+(4, 'anhson', 'Đặng Anh Sơn', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 987654, '07:00:00', '12:00:00', '2019-12-06 07:00:00', 1, 100000),
+(5, 'vumay', 'Vũ Thị Mây', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 123456, '12:00:00', '18:00:00', '2019-12-06 12:00:00', 1, 100000),
+(6, 'thuhoai', 'Phạm Thu Hoài', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 741852, '18:00:00', '23:30:00', '2019-12-06 18:30:00', 1, 100000),
+(7, 'quangthuong', 'Tạ Quang Thưởng', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 456789, '07:00:00', '12:00:00', '2019-12-06 07:00:00', 1, 100000),
+(8, 'duchuynh', 'Nguyễn Đức Huynh', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 987654, '12:00:00', '18:00:00', '2019-12-06 12:00:00', 1, 100000),
+(9, 'hoaithanh', 'Ngô Thị Hoài Thanh', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 258963, '18:00:00', '23:30:00', '2019-12-06 18:00:00', 1, 100000),
+(10, 'baove', 'Bảo Văn Vệ', 'library/img/avt0.jpg', '+84*********', '***@gmail.com', 467913, '07:00:00', '23:30:00', '2019-12-06 07:00:00', 1, 100000);
 
 -- --------------------------------------------------------
 
@@ -177,6 +219,12 @@ ALTER TABLE `banhang`
   ADD KEY `id_sp` (`id_sp`);
 
 --
+-- Chỉ mục cho bảng `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `chucvu`
 --
 ALTER TABLE `chucvu`
@@ -192,6 +240,7 @@ ALTER TABLE `doanhthu`
 -- Chỉ mục cho bảng `news`
 --
 ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_nv` (`id_nv`);
 
 --
@@ -227,6 +276,12 @@ ALTER TABLE `banhang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `chucvu`
 --
 ALTER TABLE `chucvu`
@@ -237,6 +292,12 @@ ALTER TABLE `chucvu`
 --
 ALTER TABLE `doanhthu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`

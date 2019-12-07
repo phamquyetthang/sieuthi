@@ -137,12 +137,36 @@ img{
     margin-left: 80px;
     margin-top: 10px;
 }
-.chattab{
+.chat{
     position: fixed;
-    top: 300px;
+    /* background-color: #00a1f2; */
+    /* top: 300px; */
     bottom: 0px;
-    right: 0px;
-    width: 333px;
+    right: 12px;
+    width: 300px;
+    margin: 0px;
+}
+.chat .messages{ 
+    border: 1px solid gray;
+    width: 279px;
+    height: 410px;
+    padding: 10px;
+    overflow-y: scroll;
+
+}
+/* .chat .message a{
+    color: slategrey;
+
+} */
+.chat .message p{
+    margin: 5px 0;
+}
+.chat .entry{ 
+    width: 289px;
+    height: 40px;
+    padding: 5px;
+    margin-top: 2px;
+    /* margin-right: 3px; */
 }
 .headsale{
     position: fixed;

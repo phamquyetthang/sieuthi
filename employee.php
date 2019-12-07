@@ -23,6 +23,7 @@ require_once ("model/loadinfo.php");
     </style>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/hiddenstyle.css">
+    <link rel="stylesheet" href="style/employee.css">
 </head>
 <body>
     <div  id="manChan"></div>
@@ -72,8 +73,14 @@ require_once ("model/loadinfo.php");
         <div class="oclock">
                 <div id="clock"></div>
         </div>
-        <div class="chattab">
-
+        <div class="chat">
+            <div class="messages scroll">
+                <div class="message">
+                    <a href="#">phucchi</a>
+                    <p>Tin nhan ne</p>
+                </div>
+            </div>
+            <textarea class="entry" placeholder="gì đó" name="" cols="30" rows="10"></textarea>
         </div>
     </div>
 
@@ -259,7 +266,9 @@ require_once ("model/loadinfo.php");
 
         </form>
     </div>
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script/chat.js"></script>
 </body>
+
 <script src="script/script.js"></script>
 </html>
