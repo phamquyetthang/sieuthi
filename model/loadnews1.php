@@ -48,10 +48,10 @@ while($rownews1=$connews1->fetch_array(MYSQLI_ASSOC)){
             </div>
             <div class="titlenews">'.$title_news1.'</div>
             <div class="contentnews">
-            '.$content_news1.'
                 <div class="imagenews">
                 <img src="'.$imgnews1.'" alt="ảnh minh họa">
                 </div>
+                '.$content_news1.'
             </div>
         </div> '
         );

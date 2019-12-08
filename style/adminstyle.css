@@ -77,6 +77,10 @@ img{
     overflow-y: auto;
     height: 655px;
     padding-top: 30px;
+    display: none;
+}
+#news1{
+    display: block;
 }
 .contentnew{
     border: 1px solid gray;

@@ -6,7 +6,12 @@ function openTabs(tabname){
     console.log("sdasdasd");
     document.getElementById(tabname).style.display="block";
  }
-
+ function addManche(el, classname){
+   el.setAttribute('class', classname);
+}
+function delManche(el, classname){
+   el.setAttribute('class', classname)
+}
  function openSale(tabsale){
     var x = document.getElementsByClassName("retabcon");
     for(var i=0; i<x.length; i++){
@@ -23,7 +28,24 @@ function openTabs(tabname){
     console.log("11112");
     document.getElementById(tab).style.display="block";
  }
-
+ function openAny(idtabs){
+   document.getElementById(idtabs).style.display='block';
+   console.log("open any tab");
+   addManche(manChan, 'manChan');
+}
+function closeAny(idtabs){
+   document.getElementById(idtabs).style.display='none';
+   console.log("close any tab");
+   delManche(manChan, '');
+}
+function openNews(tabnews){
+   var x = document.getElementsByClassName("news");
+   for(var i=0; i<x.length; i++){
+       x[i].style.display ="none";
+   }
+   console.log("open news");
+   document.getElementById(tabnews).style.display="block";
+}
  setInterval(
     function(){
        var today = new Date();

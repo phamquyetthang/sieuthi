@@ -26,6 +26,7 @@ require_once ("model/loadinfo.php");
     <link rel="stylesheet" href="style/hiddenstyle.css">
 </head>
 <body>
+<div  id="manChan"></div>
     <div class="left">
         <div class="user">
             <div class="avtemp">
@@ -55,18 +56,18 @@ require_once ("model/loadinfo.php");
     <div class="right" id="hometab">
         <div class="news scroll" id="news1">
             <?php
-                require_once ("model/loadnews1.php");
+                require_once ("model/loadnews2.php");
             ?>
         </div>
         <div class="news scroll" id="news2">
             <?php
-            require_once ("model/loadnew2.php")
+            require_once ("model/loadnews1.php")
             ?>
         </div>
-        <button class="creatus cu-p" id="creatus">Đăng bài</button>
+        <button class="creatus cu-p" id="creatus" onclick="openAny('creatusform')">Đăng bài</button>
             <div class="locnews">
-                <button class="locnewsc">Thông báo</button>
-                <button class="locnewsc">Bài viết</button>
+                <button class="locnewsc" onclick="openNews('news1')">Thông báo</button>
+                <button class="locnewsc" onclick="openNews('news2')">Bài viết</button>
             </div>
             
         </div>
@@ -174,7 +175,7 @@ require_once ("model/loadinfo.php");
     </div>
 
     <div class="creatusform" id="creatusform">
-        <button class="exit" onclick="exit('creatusform')">x</button>
+        <button class="exit" onclick="closeAny('creatusform')">x</button>
         <form action="model/postnews.php" method="post">
             <input type="text" name="titlenews" id="tieuden" placeholder="Tiêu đề" required="required">
             <textarea name="contentnews" id="noidungn" cols="30" rows="10" placeholder="Nội dung" required="required"></textarea>

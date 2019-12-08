@@ -59,6 +59,7 @@
     border: 1px solid gray;
     border-radius: 5px;
     float: left;
+    overflow: hidden;
 }
 .rightifb{
     width: 300px;
@@ -78,7 +79,7 @@
 }
 .checkhang{
     position: fixed;
-    width: 100px;
+    width: 120px;
     margin-left: 25px;
     height: 50px;
     font-size: 24px;
@@ -113,7 +114,7 @@
 }
 .hoadon{
     width:220px;
-    height: 400px;
+    height: 401px;
     border: 1px solid gray;
     border-radius: 5px;
     position: fixed;
@@ -125,4 +126,45 @@
 }
 #saling{
     display: block;
+}
+.moneykhach{
+    position: fixed;
+    right: 12px;
+    top: 120px;
+    width: 220px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: hidden;
+}
+.ifhd{
+    float: left;
+    width: 70px;
+    background-color: #ddd;
+    height: 100%;
+    /* border: gray solid 1px; */
+    word-wrap: break-word;
+}
+#slhd{
+    border-right: 1px gray dashed;
+    border-left: 1px gray dashed;
+}
+.ifhd span{
+    width: 70px;
+    margin: 0px;
+    text-align: left;
+    height: 30px;
+    border-bottom: thistle thin dashed;
+    display: block;
+}
+.sumbill{
+    display: block;
+    width: 220px;
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px gray dashed;
+    background-color: #eee;
+    text-decoration-style: dashed;
+    line-height: 1.2;
 }

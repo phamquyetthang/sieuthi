@@ -327,3 +327,7 @@ button{
 .scroll::-webkit-scrollbar-track {
     background-color: #eee;
 } 
+.scroll{
+    scrollbar-color: gray #eee;
+    scrollbar-width: thin;
+}

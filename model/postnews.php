@@ -1,11 +1,11 @@
 <?php
 session_start();
 ?>
-<!-- <html>
+<html>
 <head>
   <meta http-equiv='refresh' content='0.5; URL=http://localhost/sieuthi/controller/posi.php'>
 </head>
-</html> -->
+</html>
 <?php
 $server = "localhost";
 $username = "anyone"; // Khai báo username
@@ -20,20 +20,31 @@ if ($connect->connect_error) {
 }
 $empid=$_SESSION['empid'];
 		if(isset($_POST['postnews'])){
-			$title=$_POST['titlenews'];
-            $content=$_POST['contentnews'];
-            echo($content);
+			$title= addslashes(nl2br(htmlentities($_POST['titlenews'])));
+            $content= addslashes(nl2br(htmlentities($_POST['contentnews'])));
+            
             if(empty($_POST['imgnews'])){
                 $img=NULL;
                 $addnews="INSERT INTO `news`(`id_nv`, `title`,`content`) 
                 VALUES ('$empid','$title','$content')";
                 $query=mysqli_query($connect,  $addnews);
+                if(!$query){
+                    echo("không được");
+                }else{
+                    echo($content);
+                }
+                
             }else{
                 $file=$_POST['imgnews'];
                 $img="library/img/".$file;
                 $addnews="INSERT INTO `news`(`id_nv`, `title`,`content`,img) 
 						VALUES ('$empid','$title','$content','$img')";
-			    $query=mysqli_query($connect,  $addnews);
+                $query=mysqli_query($connect,  $addnews);
+                if(!$query){
+                    echo("không được");
+                }else{
+                    echo($content);
+                }
             }
             
 		}

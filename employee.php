@@ -56,12 +56,12 @@ require_once ("model/loadinfo.php");
        
         <div class="news scroll" id="news1">
             <?php
-                require_once ("model/loadnews1.php");
+                require_once ("model/loadnews2.php");
             ?>
         </div>
         <div class="news scroll" id="news2">
             <?php
-            require_once ("model/loadnew2.php")
+            require_once ("model/loadnews1.php")
             ?>
         </div>
         <div class="locnews">
@@ -91,74 +91,76 @@ require_once ("model/loadinfo.php");
             <button class="menusale" onclick="openSale('hissale')">Lịch sử</button>
         </div>
         <div class="saletabcon" id="saling">
+            <div id="saleajax">
                 <div class="infobill">
                 
-                    <div class="imgpro">
-    
-                    </div>
+                    <div class="imgpro"></div>
                     <div class="rightifb">
                         <div class="infone">
                             <span>Mã sản phẩm:</span>
-                            <div class="msp">
-
-                            </div>
+                            <div class="msp"> </div>
                         </div>
                         <div class="infone">
                             <span>Tên sản phẩm:</span>
-                            <div class="tsp">
-
-                            </div>
+                            <div class="tsp"> </div>
                         </div>
                         <div class="infone">
                             <span>Số lượng:</span>
-                            <div class="sl">
-
-                            </div>
+                            <div class="sl"> </div>
                         </div>
                         <div class="infone">
                             <span>Giá bán:</span>
-                            <div class="gb">
-
-                            </div>
+                            <div class="gb"> </div>
                         </div>
                         <div class="infone">
                             <span>Giảm giá:</span>
-                            <div class="gg">
-
-                            </div>
+                            <div class="gg"></div>
                         </div>
                         <div class="infone">
                             <span>Tổng tiền:</span>
-                            <div class="tt">
-
-                            </div>
+                            <div class="tt"></div>
                         </div>
                     </div>
-                    
-                        
+     
                 </div>
-            <div class="contsale scroll" id="havebill">
-                <div class="inputone">
-                    <span>Mã sản phẩm:</span>
-                    <input type="text" class="ipmsp">
+                <div class="hoadon scroll">
+                    <div class="ifhd" id="spb">
+                        <span>SP</span>
+                    </div>
+                    <div class="ifhd" id="slhd">
+                        <span>SL</span>
+                    </div>
+                    <div class="ifhd" id="ghd">
+                        <span>GIÁ</span>
+                    </div>
+                    <div class="sumbill">
+                        Mã:</br>
+                        Time:</br>
+                        Khuyến mại:</br>
+                        Thành tiền:</br>
+                        Trả lại:</br>
+                    </div>
                 </div>
-                <div class="inputone">
-                    <span>Số lượng:</span>
-                    <input type="text" class="ipsl">
-                </div>
-            </div>
 
-            <!-- <div class="infone">
-                <input type="submit" value="Check" class="checkhang">
-            </div> -->
-            
+            </div>
+            <form method="post">
+                <div class="contsale scroll" id="havebill">
+                    <div class="inputone">
+                        <span>Mã sản phẩm:</span>
+                        <input type="text" class="ipmsp" id="ipmsp">
+                    </div>
+                    <div class="inputone">
+                        <span>Số lượng:</span>
+                        <input type="text" class="ipsl" id="ipsl">
+                    </div>
+                </div>
+                <input type="text" name="moneykhach" class="moneykhach" id="tkd" placeholder="Tiền khách">
+                
+            </form>
+            <button class="taohoadon" id="taohoadon">Check</button>
             <button class="addbill" id="addbill">+</button>
-            <button class="taohoadon">Check</button>
-            <div class="hoadon">
-
-            </div>
             <div class="thanhtoan">
-                <button class="thanhtoan">Thanh toán</button>
+                <button class="thanhtoan" id="thanhtoan">Thanh toán</button>
             </div>
         </div>
         <div class="saletabcon" id="hissale">
@@ -268,6 +270,7 @@ require_once ("model/loadinfo.php");
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script/chat.js"></script>
+    <script src="script/saleajax.js"></script>
 </body>
 
 <script src="script/script.js"></script>
