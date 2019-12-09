@@ -10,6 +10,7 @@ if($_SESSION["type"]==2){
 <?php
 require_once ("model/connect.php");
 require_once ("model/loadinfo.php");
+$idnv=$_SESSION['empid'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -163,7 +164,16 @@ require_once ("model/loadinfo.php");
             </div>
         </div>
         <div class="saletabcon" id="hissale">
-                
+            <div class="banghis">
+                <div>Mã đơn hàng</div><div>Mã sản phẩm</div>
+                <div>Tên sản phẩm</div>
+                <div>Số lượng</div>
+                <div>Số tiền</div>
+                <div>Thời gian</div>
+            </div>
+            <div class="his_s_ajax">
+
+            </div>
         </div>
         
     </div>
@@ -172,7 +182,7 @@ require_once ("model/loadinfo.php");
     <div class="right scroll" id="reprotab">
         <div class="headsale">
             <button class="menusale" onclick="openReturn('returning')">Trả lại hàng</button>
-            <button class="menusale" onclick="openReturn('havereturn')">Lịch sử</button>
+            <button class="menusale" onclick="openReturn('hisreturn')">Lịch sử</button>
         </div>
 
         <div class="returntabcon" id="returning">
@@ -215,7 +225,17 @@ require_once ("model/loadinfo.php");
             </div>
         </div>
         <div class="returntabcon" id="hisreturn">
-                
+            <div class="banghis">
+                <div>Mã trả hàng</div><div>Mã đơn hàng</div>
+                <div>Tên sản phẩm</div>
+                <div>Số lượng</div>
+                <div>Lý do</div>
+                <div>Thời gian</div>
+            </div>
+            <div class="his_r_ajax">
+
+            </div>
+               
         </div>
             
     </div>
@@ -299,6 +319,7 @@ require_once ("model/loadinfo.php");
     <script src="script/chat.js"></script>
     <script src="script/saleajax.js"></script>
     <script src="script/returnajax.js"></script>
+    <script src="script/loadhis.js"></script>
 </body>
 
 </html>

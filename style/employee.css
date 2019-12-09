@@ -127,6 +127,11 @@
 #saling{
     display: block;
 }
+#hissale{
+    position: relative;
+    margin-top: 60px;
+    height: 580px;
+}
 .moneykhach{
     position: fixed;
     right: 12px;
@@ -243,4 +248,18 @@
     bottom: 90px;
     width: 200px;
     height: 60px;
+}
+.banghis{
+    width: 998px;
+    height: 39px;
+    border: rgb(4, 32, 191) 1px solid;
+    /* margin-top: 1px; */
+    margin-left: 40px;
+    display: block;
+}
+.banghis div{
+    width: 145px;
+    float: left;
+    padding: 10px;
+    border-right: #0481BF 1px solid;
 }
