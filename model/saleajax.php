@@ -2,7 +2,9 @@
 session_start();
 require_once ("connect.php");
 $idnv=$_SESSION['empid'];
+// echo($idnv);
 $method=$_POST['method'];
+// echo($method.$_POST['ipmsp'].$_POST['tkd']);
 if($method==='check'){
     if($_POST['ipmsp']!=NULL&&$_POST['tkd']!=NULL){
         $ipmsp=$_POST['ipmsp'];
@@ -76,6 +78,7 @@ if($method==='check'){
 
     }else{
         returnno();
+        // echo("<hr> <hr> <hr> đéo được");
     }
 }
 

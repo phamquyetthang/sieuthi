@@ -1,18 +1,5 @@
 var sale={}
 
-// sale.fetchBill =function(){
-//     $.ajax({
-//         url: 'model/saleajax.php',// gửi ajax đến file saleajax.php
-//         type: 'post',// chọn phương thức gửi là post
-//         data: { method: 'fetch'},// Danh sách các thuộc tính sẽ gửi đi
-//         success: function(data){
-//             // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
-//             // đó vào thẻ div có class=hoadon
-//             $('.hoadon').html(data);
-//         }
-//     });
-// }
-
 
 $("#thanhtoan").click(
      sale.fetchBill= function(){

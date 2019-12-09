@@ -31,7 +31,6 @@ require_once ("model/loadinfo.php");
         <div class="user">
             <div class="avtemp">
             <?php
-				
 				echo '<img src="'.$empavt.'" alt="avt của nhân viên">';
 			?>
             </div>
@@ -169,26 +168,53 @@ require_once ("model/loadinfo.php");
         
     </div>
 
+<!-- trả hàng  -->
     <div class="right scroll" id="reprotab">
         <div class="headsale">
-            <button class="menusale" onclick="openSale('returning')">Trả lại hàng</button>
-            <button class="menusale" onclick="openSale('havereturn')">Lịch sử</button>
+            <button class="menusale" onclick="openReturn('returning')">Trả lại hàng</button>
+            <button class="menusale" onclick="openReturn('havereturn')">Lịch sử</button>
         </div>
-        <div class="saletabcon" id="returning">
-            <div class="contsale scroll" id="havereturn">
-                <div class="infobill">
-                    <div class="imgpro">
-    
-                    </div>
-                    
+
+        <div class="returntabcon" id="returning">
+
+            <div class="checkreturn">
+                <input type="text" name="madonhang" id="madonhang" placeholder="Mã đơn hàng">
+                <input type="text" name="sldonhang" id="sldonhang" placeholder="Số lượng hàng hóa">
+                <input type="text" id="lydotra" placeholder="Lý do trả lại">
+                <button id="kiemtradh">Kiểm tra đơn hàng</button>
+                <button id="thuchienrt">Thực hiện hoàn trả</button>
+                
+            </div>
+
+            <div class="infohoantra" id="infohoantra">
+                <div>
+                    <span>Mã đơn hàng:</span>
+                    <div id="mdhht"></div>
+                </div>
+                <div >
+                    <span>Sản phẩm:</span>
+                    <div id="idspht"></div>
+                </div>
+                <div>
+                    <span>Số lượng khi mua:</span>
+                    <div id="slht"></div>
+                </div>
+                <div>
+                    <span>Thời điểm mua hàng:</span>
+                    <div id="timedh"></div>
+                </div>
+                <div >
+                    <span>Số tiền đã thanh toán:</span>
+                    <div id="moneyht"></div>
+                </div>
+                <img src="" alt="ảnh hàng hóa">
+                <div id="sotientralai">
+                    <span>Số tiền hoàn lại:</span>
+                    <div id="sotienhl"></div>
                 </div>
             </div>
-            <div class="thanhtoan">
-                <button class="thanhtoan">Thực hiện</button>
-            </div>
-            <button class="addbill" id="addreturn">+</button>
         </div>
-        <div class="saletabcon" id="hisreturn">
+        <div class="returntabcon" id="hisreturn">
                 
         </div>
             
@@ -269,9 +295,10 @@ require_once ("model/loadinfo.php");
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script/script.js"></script>
     <script src="script/chat.js"></script>
     <script src="script/saleajax.js"></script>
+    <script src="script/returnajax.js"></script>
 </body>
 
-<script src="script/script.js"></script>
 </html>

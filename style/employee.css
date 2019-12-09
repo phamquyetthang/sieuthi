@@ -168,3 +168,79 @@
     text-decoration-style: dashed;
     line-height: 1.2;
 }
+.returntabcon{
+    position: relative;
+    margin-top: 60px;
+    height: 580px;
+    display: none;
+}
+#returning{
+    display: block;
+}
+.checkreturn{
+    display: block;
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 50px;
+
+}
+.checkreturn input{
+    height: 40px;
+    border: hidden;
+    border-radius: 3px;
+    margin-top: 30px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.checkreturn button{
+    width: 196px;
+    height: 50px;
+    border: hidden;
+    border-radius: 3px;
+    margin-top: 30px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #0481BF;
+    transition: 1s;
+    
+}
+.checkreturn button:hover{
+    background-color: rgb(4, 32, 191);
+}
+
+.infohoantra{
+    position: absolute;
+    width: 700px;
+    height: 400px;
+    border: 1px solid gray;
+    right: 50px;
+    top: 50px;
+}
+.infohoantra>div{
+    width: 205px;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.infohoantra>div>div{
+    width: 198px;
+    height: 30px;
+    margin-top: 3px;
+    border: #0481BF 1px solid;
+}
+.infohoantra img{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    right: 50px;
+    top: 25px;
+    border: #0481BF 1px solid;
+}
+#sotientralai{
+    position: fixed;
+    left: 310px;
+    bottom: 90px;
+    width: 200px;
+    height: 60px;
+}

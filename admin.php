@@ -45,7 +45,7 @@ require_once ("model/loadinfo.php");
         <button class="multichoose" onclick="openTabs('hometab')">Trang chủ</button>
         <button class="multichoose" onclick="openTabs('nhanvien')">Nhân viên</button>
         <button class="multichoose" onclick="openTabs('reprotab')">Sản phẩm</button>
-        <button class="multichoose" onclick="openTabs('')">Khách hàng</button>
+        <!-- <button class="multichoose" onclick="openTabs('')">Khách hàng</button> -->
         <button class="multichoose" onclick="openTabs('')">Báo cáo doanh thu</button>
         <button class="multichoose" onclick="openTabs('infotab')">Bản thân</button>
 
