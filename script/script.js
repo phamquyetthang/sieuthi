@@ -28,7 +28,7 @@ function openTabs(tabname){
  }
 
 
- function addManche(el, classname){
+function addManche(el, classname){
    el.setAttribute('class', classname);
 }
 function delManche(el, classname){
@@ -63,7 +63,23 @@ function closeAny(idtabs){
  }
 
 
-
+//  $("#upanh").click(
+//    function doiavt(){
+//        var nguonavt=document.getElementById("nguonavt");
+//        $.ajax({
+//            url: 'model/doiavt.php',
+//            type: 'post',
+//            data: {
+//                ac: 'doiavt',
+//                nguonavt: nguonavt,
+//            },
+//            success : function (result){
+//                $('.avtinfo').html(result);
+//            }
+//        });
+//        console.log(nguonavt);
+//    }
+// );
 
 
 

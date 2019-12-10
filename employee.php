@@ -248,7 +248,7 @@ $idnv=$_SESSION['empid'];
                 echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
                 ?>
             <div class="menuimg">
-                <button >Thay đổi</button>
+                <button onclick="openAny('doiavt')">Thay đổi</button>
                 <button onclick="openAny('xemavt')">Xem ảnh</button>
             </div>
             </div>
@@ -283,6 +283,12 @@ $idnv=$_SESSION['empid'];
                 echo($empemail);
                 ?>
                 </div>
+                <div><span>Tổng ngày làm:</span><br>
+                <?php echo((int)$dayword); ?>
+                </div>
+                <div><span>Lương tạm tính:</span><br>
+                <?php echo($thunhap); ?> VND
+                </div>
             </div>
         </div>
         <div class="rightinfo scroll">
@@ -310,9 +316,15 @@ $idnv=$_SESSION['empid'];
     </div>
 
     <div id="doiavt">
-        <form action="doiavt.php" method="post">
-
+        
+        <button class="exit" onclick="closeAny('doiavt')">x</button>
+        <form action="model/doiavt.php" method="post">
+            <input type="file" name="doiavt" id="nguonavt">
+            <input type="submit" value="Thay đổi" id="upanh" name="upanh">
+            <!-- <button id="upanh">Thay đổi</button> -->
         </form>
+        <!-- <button id="upanh">Thay đổi</button> -->
+       
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script/script.js"></script>

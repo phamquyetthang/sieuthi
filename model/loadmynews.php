@@ -4,7 +4,7 @@ $mynews= "SELECT news.id, news.title, news.content, news.img, news.time,
             nhanvien.id AS idemp, nhanvien.fullname, nhanvien.position, nhanvien.avt
             FROM news 
             INNER JOIN nhanvien ON news.id_nv= nhanvien.id 
-            WHERE position=1 AND nhanvien.id=$empid
+            WHERE nhanvien.id=$empid
             ORDER BY news.id DESC";
 $conmynews=$connect->query($mynews);
 if (!$conmynews) {

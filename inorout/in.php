@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
         if($num_rows!=0){
             $row=mysqli_fetch_assoc($queryin);
             $_SESSION['timein']=$row['timein'];
-            $_SESSION['timein']=$row['timeout'];
+            $_SESSION['timeout']=$row['timeout'];
             $_SESSION['empid']=$row['id'];
             $_SESSION["username"]=$row['accname'];
             $_SESSION["fullname"]=$row['fullname'];

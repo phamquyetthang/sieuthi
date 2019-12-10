@@ -1,6 +1,7 @@
 <?php
 $idemp=$_SESSION['empid'];
-$sql = "SELECT * FROM `nhanvien` WHERE id='$idemp'";
+$sql = "SELECT * ,TIME_TO_SEC(TIMEDIFF(CURRENT_TIMESTAMP(), firstday)) AS nc
+FROM `nhanvien` WHERE id='$idemp'";
 $ket_qua = $connect->query($sql);
 // $img='';
 //Nếu kết quả kết nối không được thì xuất báo lỗi và thoát
@@ -20,6 +21,10 @@ while ($row = $ket_qua->fetch_array(MYSQLI_ASSOC)) {
     $empfini=$row['finish'];
     $empfirst=$row['firstday'];
     $position=$row['position'];
+    $salary=$row['salary'];
+    $timeword=$row['nc'];
+    (int)$dayword=$timeword/86400;
+    $thunhap=$salary*(int)$dayword;
     if($position==1){
         $chucvu="Nhân viên";
     }else{

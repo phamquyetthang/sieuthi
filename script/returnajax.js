@@ -21,7 +21,7 @@ $("#kiemtradh").click(
 $("#thuchienrt").click(
     function returnhh(){
         var madonhang=$("#madonhang").val();
-        var sldonhang=$("#sldonhang").val();
+        var sldonhang=$('#sldonhang').val();
         var lydo=$("#lydotra").val();
         $.ajax({
             url: 'model/returnajax.php',

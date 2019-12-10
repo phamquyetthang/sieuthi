@@ -3,6 +3,10 @@
     padding: 0px;
     overflow-x: hidden;
 }
+
+#manChan{
+    z-index: 100;
+}
 img{
     width: 100%;
  	height: 100%;
@@ -208,8 +212,33 @@ img{
     /* background-color: violet; */
     margin-top: 51px;
 }
-
 #addpro{
     display: block;
     background-color: salmon;
+}
+#chart_div{
+    margin-top: 50px;
+    margin-left: 5px;
+    width: 800px; 
+    height: 540px;
+    overflow: hidden;
+    border: #0481BF 1px solid;
+}
+.thongke{
+    position: absolute;
+    width: 235px;
+    top:50px;
+    right: 20px;
+}
+.thongke>div{
+    width: 205px;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.thongke>div>div{
+    width: 198px;
+    height: 30px;
+    margin-top: 3px;
+    border: #0481BF 1px solid;
 }

@@ -83,6 +83,7 @@ if($reme==="checkbill"){
         
 }
 }else if($reme==='addreturn'){
+    $sldonhang=$_POST['sldonhang'];
     $lydo=$_POST['lydo'];
     $sqlrt="SELECT *,sanpham.img,sanpham.id AS idsp 
     FROM `banhang` 
@@ -105,16 +106,16 @@ if($reme==="checkbill"){
             $sqldele="DELETE FROM `banhang` WHERE `banhang`.`id` = '$madonhang'";
             $retval = mysqli_query($connect, $sqldele);
 
-            $sqladdre="INSERT INTO `trahang`(`id_sp`,`lydo`, `id_ban`, `id_nv`) 
-            VALUES ('$idsp', '$lydo','$madonhang','$idnv')";
+            $sqladdre="INSERT INTO `trahang`(`id_sp`,`lydo`, `id_ban`, `id_nv`, soluong) 
+            VALUES ('$idsp', '$lydo','$madonhang','$idnv','$sldonhang')";
             mysqli_query($connect,$sqladdre);
         }
         if($sldonhang<$slmua){
             $sqldele="UPDATE banhang SET soluong='$sldonhang', money='$conlai' WHERE banhang.id= '$madonhang'";
             $retval = mysqli_query($connect, $sqldele);
 
-            $sqladdre="INSERT INTO `trahang`(`id_sp`,`lydo`, `id_ban`, `id_nv`) 
-            VALUES ('$idsp', '$lydo','$madonhang','$idnv')";
+            $sqladdre="INSERT INTO `trahang`(`id_sp`,`lydo`, `id_ban`, `id_nv`, soluong) 
+            VALUES ('$idsp', '$lydo','$madonhang','$idnv','$sldonhang')";
             mysqli_query($connect,$sqladdre);
         }
 

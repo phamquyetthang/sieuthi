@@ -6,7 +6,7 @@ function openTabs(tabname){
     console.log("sdasdasd");
     document.getElementById(tabname).style.display="block";
  }
- function addManche(el, classname){
+function addManche(el, classname){
    el.setAttribute('class', classname);
 }
 function delManche(el, classname){
@@ -81,3 +81,6 @@ function openNews(tabnews){
        }
     },1000
 );
+
+
+

@@ -24,9 +24,10 @@ require_once ("model/loadinfo.php");
     <link rel="stylesheet" href="style/adminstyle.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/hiddenstyle.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-<div  id="manChan"></div>
+    <div  id="manChan"></div>
     <div class="left">
         <div class="user">
             <div class="avtemp">
@@ -45,8 +46,7 @@ require_once ("model/loadinfo.php");
         <button class="multichoose" onclick="openTabs('hometab')">Trang chủ</button>
         <button class="multichoose" onclick="openTabs('nhanvien')">Nhân viên</button>
         <button class="multichoose" onclick="openTabs('reprotab')">Sản phẩm</button>
-        <!-- <button class="multichoose" onclick="openTabs('')">Khách hàng</button> -->
-        <button class="multichoose" onclick="openTabs('')">Báo cáo doanh thu</button>
+        <button class="multichoose" onclick="openTabs('baocao')">Báo cáo doanh thu</button>
         <button class="multichoose" onclick="openTabs('infotab')">Bản thân</button>
 
         <form action="inorout/out.php" method="post">
@@ -107,22 +107,111 @@ require_once ("model/loadinfo.php");
             </div>
                 
         </div>
-    <div class="right scroll" id="reprotab">
-        <div class="headsale">
-            <button class="menusale" onclick="openSale('addpro')">Trả lại hàng</button>
-            <button class="menusale" onclick="openSale('listpro')">Lịch sử</button>
-        </div>
-        <div class="retabcon" id="addpro">
-            <div style="font-size: 38px">
-                   Vùng thêm sản phẩm
-                </div>
+
+    <div class="right scroll" id="baocao">
+        <div id="chart_div"></div>
+        <?php 
+            $sqltbs="SELECT COUNT(*) AS tonggd, SUM(money) AS tongt FROM `banhang`";
+            $sqltth="SELECT COUNT(*) AS tttra, SUM(soluong*(sanpham.giaban-sanpham.giamgia)) AS tmmtra
+            FROM `trahang`
+            INNER JOIN sanpham ON trahang.id_sp=sanpham.id";
+            $tongbans=$connect->query($sqltbs);
+            $rowbans=$tongbans->fetch_array(MYSQLI_ASSOC);
+            $tonggd=$rowbans['tonggd'];
+            $tongtgd=$rowbans['tongt'];
+
+            $tongtrar=$connect->query($sqltth);
+            $rowtrar=$tongtrar->fetch_array(MYSQLI_ASSOC);
+            
+            $tttra=$rowtrar['tttra'];
+            $tmmtra=$rowtrar['tmmtra'];
+            
+            echo('
+            <div class="thongke">
+            <div>
+                <span>Tổng đơn hàng giao dịch:</span>
+                <div id="tdhdd">'.$tonggd.'</div>
             </div>
-            <div class="retabcon" id="listpro">
-                    Vùng quản lý sản phẩm</br>
-                    Hiện thông tin, xóa, sửa</br>
+            <div>
+                <span>Tổng đơn hàng trả lại:</span>
+                <div id="tstdd">'.$tttra.'</div>
+            </div>
+            <div>
+                <span>Tổng số tiền trả lại:</span>
+                <div id="tstdd">'.$tmmtra.' VND</div>
+            </div>
+            <div>
+                <span>Tổng số doanh thu:</span>
+                <div id="tstdd">'.$tongtgd.' VND</div>
             </div>
             
+        </div>
+            ');
+        ?>
+        
+        <?php
+            
+            $sqlmaxday="SELECT MAX(DAY(time)) AS maxday FROM `banhang` WHERE 1";
+            $loadday=$connect->query($sqlmaxday);
+            $rowday=$loadday->fetch_array(MYSQLI_ASSOC);
+            $maxday=$rowday['maxday'];
+            $minday=$maxday-7;
+            for($i=$minday; $i<=$maxday;$i++){
+                $sqlsum="SELECT SUM(money)AS sumt FROM `banhang` WHERE DAY(time)='$i'";
+                $loadsum=$connect->query( $sqlsum);
+                $rowsum=$loadsum->fetch_array(MYSQLI_ASSOC);
+                if($rowsum['sumt']===NULL){
+                    $sum[$i]=0;
+                }else{
+                    $sum[$i]=$rowsum['sumt'];
+                }
+                
+            }
+            for($i=$minday; $i<=$maxday;$i++){
+                $sqlsumre="SELECT SUM(trahang.soluong*(sanpham.giaban-sanpham.giamgia)) AS tongtra
+                FROM `trahang`
+                INNER JOIN sanpham ON trahang.id_sp=sanpham.id
+                WHERE DAY(time)='$i'";
+                $loadsumre=$connect->query($sqlsumre);
+                $rowsumre=$loadsumre->fetch_array(MYSQLI_ASSOC);
+                if($rowsumre['tongtra']===NULL){
+                    $sumre[$i]=0;
+                }else{
+                    $sumre[$i]=$rowsumre['tongtra'];
+                }
+                
+            }
+            // echo ($sum[8]);
+        ?>
+        <script type="text/javascript">
+            google.charts.load("current", {packages:["imagelinechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            var ia= <?php echo json_encode($maxday);?>;
+            var vac= <?php echo json_encode($sum);?>;
+            var vrc=<?php echo json_encode($sumre); ?>;
+            var day7=vac[ia], day6=vac[ia-1], day5= vac[ia-2], day4=vac[ia-3];
+            var day3=vac[ia-4], day2=vac[ia-5], day1=vac[ia-6];
+            var day7r=vrc[ia], day6r=vrc[ia-1], day5r= vrc[ia-2], day4r=vrc[ia-3];
+            var day3r=vrc[ia-4], day2r=vrc[ia-5], day1r=vrc[ia-6];
+            function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Ngày', 'Sales', 'Return'],
+                [String(ia-6),  day1,       day1r],
+                [String(ia-5),  day2,       day2r],
+                [String(ia-4),  day3,       day3r],
+                [String(ia-3),  day4,       day4r],
+                [String(ia-2),  day5,       day5r],
+                [String(ia-1),  day6,       day6r],
+                [String(ia),  day7,       day7r]
+            ]);
+
+            var chart = new google.visualization.ImageLineChart(document.getElementById('chart_div'));
+
+            chart.draw(data, {width: 800, height: 540, min: 0});
+            }
+        </script>
     </div>
+        
     <div class="right scroll" id="infotab">
         <div class="leftinfo">
             <div class="avtinfo">
@@ -130,7 +219,7 @@ require_once ("model/loadinfo.php");
                 echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
                 ?>
             <div class="menuimg">
-                <button >Thay đổi</button>
+                <button onclick="openAny('doiavt')">Thay đổi</button>
                 <button onclick="openAny('xemavt')">Xem ảnh</button>
             </div>
             </div>
@@ -165,6 +254,12 @@ require_once ("model/loadinfo.php");
                 echo($empemail);
                 ?>
                 </div>
+                <div><span>Tổng ngày làm:</span><br>
+                <?php echo((int)$dayword); ?>
+                </div>
+                <div><span>Lương tạm tính:</span><br>
+                <?php echo($thunhap); ?> VND
+                </div>
             </div>
         </div>
         <div class="rightinfo scroll">
@@ -173,7 +268,7 @@ require_once ("model/loadinfo.php");
         ?>
         </div>
     </div>
-
+        <!-- form đăng bài  -->
     <div class="creatusform" id="creatusform">
         <button class="exit" onclick="closeAny('creatusform')">x</button>
         <form action="model/postnews.php" method="post">
@@ -185,10 +280,10 @@ require_once ("model/loadinfo.php");
         </form>
     </div>
     <div id="xemavt">
-    <button class="exit" onclick="closeAny('xemavt')">x</button>
-    <?php
-    echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
-    ?>
+        <button class="exit" onclick="closeAny('xemavt')">x</button>
+        <?php
+        echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
+        ?>
     </div>
 
     <div id="doiavt">
@@ -196,6 +291,8 @@ require_once ("model/loadinfo.php");
 
         </form>
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script/chat.js"></script>
     <script src="script/adscript.js"></script>
