@@ -6,7 +6,7 @@ chat.fetchMessages =function(){
         type: 'post',
         data: { method: 'fetch'},
         success: function(data){
-            $('.chat .message').html(data);
+            $('.chat .onemess').html(data);
         }
     });
 }

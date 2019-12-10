@@ -1,9 +1,12 @@
-function openTabs(tabname){
+function openTabs(tabname, namemenu){
+   var btn=document.getElementsByClassName("multichoose");
     var x = document.getElementsByClassName("right");
     for(var i=0; i<x.length; i++){
         x[i].style.display ="none";
+        btn[i].style.backgroundColor="#eee";
     }
     console.log("sdasdasd");
+    document.getElementById(namemenu).style.backgroundColor="#0481BF";
     document.getElementById(tabname).style.display="block";
  }
 function addManche(el, classname){

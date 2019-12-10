@@ -65,23 +65,34 @@ $idnv=$_SESSION['empid'];
             ?>
         </div>
         <div class="locnews">
-            <button class="locnewsc" onclick="openNews('news1')">Thông báo</button>
-            <button class="locnewsc" onclick="openNews('news2')">Bài viết</button>
+            <button class="locnewsc" id="btnthongbao" onclick="openNews('news1')">Thông báo</button>
+            <button class="locnewsc" id="btnbaiviet" onclick="openNews('news2')">Bài viết</button>
         </div>
         
         <button class="creatus cu-p" id="creatus">Đăng bài</button>
-        <div class="oclock">
-                <div id="clock"></div>
-        </div>
-        <div class="chat">
-            <div class="messages scroll">
-                <div class="message">
-                    <a href="#">phucchi</a>
-                    <p>Tin nhan ne</p>
-                </div>
+        <div class="rightofright">
+            <div class="oclock">
+                    <div id="clock"></div>
             </div>
-            <textarea class="entry" placeholder="gì đó" name="" cols="30" rows="10"></textarea>
+            <div class="chat">
+                <div class="headchat">
+                    <div class="avtchat"><?php
+				        echo '<img src="'.$empavt.'" alt="avt của nhân viên">';
+			        ?></div>
+                    <div class="namechat"><?php echo ('<div class="empname">'.$empfull.'</div>'); ?></div>
+                </div>
+                <div class="messages scroll">
+                    <div class="onemess">
+                        <div class="message">
+                            <p class="tdmess"><span>phucchi</span></p>
+                            <p>Tin nhan ne</p>
+                        </div>
+                    </div>
+                </div>
+                <textarea class="entry" placeholder="gì đó" name="" cols="30" rows="10"></textarea>
+            </div>
         </div>
+        
     </div>
 
 

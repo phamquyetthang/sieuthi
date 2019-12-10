@@ -22,7 +22,6 @@ $idnv=$_SESSION['empid'];
 $nguonavt=$_POST['doiavt'];
 if(isset($_POST['upanh'])){
     if(isset($_POST['doiavt'])){
-
     $nguonavt=$_POST['doiavt'];
     $linkavt='library/img/'.$nguonavt;
     $sqldoia="UPDATE nhanvien SET avt='$linkavt' WHERE nhanvien.id= '$idnv'";

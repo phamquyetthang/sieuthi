@@ -3,7 +3,7 @@ class Chat extends Core{
     public function fetchMessages(){
         //query db
         $this->query("
-        SELECT chat.message, nhanvien.fullname,nhanvien.id FROM chat JOIN nhanvien ON chat.id_emp= nhanvien.id ORDER BY chat.timestamp DESC
+        SELECT chat.message,nhanvien.position, nhanvien.fullname,nhanvien.id FROM chat JOIN nhanvien ON chat.id_emp= nhanvien.id ORDER BY chat.timestamp DESC
 
         ");
         // return rows

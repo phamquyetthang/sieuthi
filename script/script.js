@@ -81,7 +81,10 @@ function closeAny(idtabs){
 //    }
 // );
 
-
+// document.getElementById('btnthongbao').onclick= function(){
+//   document.getElementById('btnthongbao').style.borderTop='4px solid #0481BF';
+//   document.getElementById('btnbaiviet').style.borderTop='hidden';
+// }
 
 
  setInterval(

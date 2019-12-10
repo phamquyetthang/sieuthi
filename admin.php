@@ -43,12 +43,11 @@ require_once ("model/loadinfo.php");
             ?>
             </div>
         </div>
-        <button class="multichoose" onclick="openTabs('hometab')">Trang chủ</button>
-        <button class="multichoose" onclick="openTabs('nhanvien')">Nhân viên</button>
-        <button class="multichoose" onclick="openTabs('reprotab')">Sản phẩm</button>
-        <button class="multichoose" onclick="openTabs('baocao')">Báo cáo doanh thu</button>
-        <button class="multichoose" onclick="openTabs('infotab')">Bản thân</button>
-
+        <button class="multichoose" id="btnhometab" onclick="openTabs('hometab','btnhometab')">Trang chủ</button>
+        <button class="multichoose" id="btnnhanvien" onclick="openTabs('nhanvien','btnnhanvien')">Nhân viên</button>
+        <button class="multichoose" id="btnsanpham" onclick="openTabs('sanpham','btnsanpham')">Sản phẩm</button>
+        <button class="multichoose" id="btnbaocao" onclick="openTabs('baocao','btnbaocao')">Báo cáo doanh thu</button>
+        <button class="multichoose" id="btnbanthan" onclick="openTabs('infotab','btnbanthan')">Bản thân</button>
         <form action="inorout/out.php" method="post">
             <input type="submit" value="Đăng xuất" class="logout" name="logout">
         </form>
@@ -71,17 +70,27 @@ require_once ("model/loadinfo.php");
             </div>
             
         </div>
-        <div class="oclock">
-            <div id="oclock"></div>
-        </div>
-        <div class="chat">
-            <div class="messages scroll">
-                <div class="message">
-                    <a href="#">phucchi</a>
-                    <p>Tin nhan ne</p>
-                </div>
+        <div class="rightofright">
+            <div class="oclock">
+                    <div id="oclock"></div>
             </div>
-            <textarea class="entry" placeholder="gì đó" name="" cols="30" rows="10"></textarea>
+            <div class="chat">
+                <div class="headchat">
+                    <div class="avtchat"><?php
+				        echo '<img src="'.$empavt.'" alt="avt của nhân viên">';
+			        ?></div>
+                    <div class="namechat"><?php echo ('<div class="empname">'.$empfull.'</div>'); ?></div>
+                </div>
+                <div class="messages scroll">
+                    <div class="onemess">
+                        <div class="message">
+                            <p class="tdmess"><span>phucchi</span></p>
+                            <p>Tin nhan ne</p>
+                        </div>
+                    </div>
+                </div>
+                <textarea class="entry" placeholder="gì đó" name="" cols="30" rows="10"></textarea>
+            </div>
         </div>
     </div>
 
@@ -91,23 +100,137 @@ require_once ("model/loadinfo.php");
                 <button class="menusale" onclick="openMenu('nvtabcon','listemp')">Danh sách</button>
             </div>
             <div class="nvtabcon" id="addemp">
-                <div style="font-size: 38px">
-                    Vùng thực hiện việc thêm nhân viên:</br>
-                    id nhân viên tự động tăng</br>
-                    sdt và email đã để mặc định có thể thêm hoặc không(Nên có thêm)</br>
-                    ảnh avata cũng đã để mặc định, không cần thiết thêm</br>
-                    Nếu thêm avt thì lưu dưới dạng $avt='library/img/'+$filename;<br>
+                <div class="inputemp" id="inputemp">
+                    <div>
+                        <span>Tên tài khoản:</span><br>
+                        <input type="text" name="tenuser" id="tenuser">
+                    </div>
+                    <div >
+                        <span>Tên nhân viên:</span><br>
+                        <input type="text" name="tennhanvien" id="tennhanvien">
+                    </div>
+                    <div>
+                        <span>Số điện thoại:</span><br>
+                        <input type="text" name="sdtuser" id="sdtuser">
+                    </div>
+                    <div>
+                        <span>Bắt đầu ca làm:</span><br>
+                        <input list="startuser" name="startuser" id="startuser">
+                        <datalist id="startuser">
+                            <option value="07:00:00"></option>
+                            <option value="12:00:00"></option>
+                            <option value="18:00:00"></option>
+                        </datalist> 
+                    </div>
+                    <div >
+                        <span>Chức vụ:</span><br>
+                        <!-- <input type="text" name="posiuser" id="posiuser"> -->
+                        <input list="posiuser" name="posiuser" id="posiuser">
+                        <datalist id="posiuser">
+                            <option value="1">Nhân viên</option>
+                            <option value="2">Quản lý</option>
+                        </datalist> 
+                    </div>
+                    <div>
+                        <span>Mật khẩu:</span><br>
+                        <input type="password" name="pwuser" id="pwuser">
+                    </div>
+                    <div>
+                        <span>Xác nhận mật khẩu:</span><br>
+                        <input type="password" name="pwagain" id="pwagain">
+                    </div>
+                    <div >
+                        <span>Địa chỉ email:</span><br>
+                        <input type="email" name="emailuser" id="emailuser">
+                    </div>
+                    <div>
+                        <span>Kết thúc ca làm:</span><br>
+                        <input list="finuser" name="finuser" id="finuser">
+                        <datalist id="finuser">
+                            <option value="12:00:00"></option>
+                            <option value="18:00:00"></option>
+                            <option value="23:00:00"></option>
+                        </datalist> 
+                    </div>
+                    <div >
+                        <span>Mức lương:</span><br>
+                        <input type="text" name="salauser" id="salauser">
+                    </div>
                 </div>
+                <button id="themnhanvien">Thêm nhân viên</button>
             </div>
             <div class="nvtabcon" id="listemp">
-                <div style="font-size: 38px">
-                    Hiển thị bảng thông tin nhân viên</br>
-                    Có thể xóa, sửa thông tin</br>
+                <div class="shownv">
+                    <p class="STT">MNV</p>
+                    <div>Tên nhân viên</div>
+                    <div>Số điện thoại</div>
+                    <div>Địa chỉ email</div>
+                    <div>Làm việc từ</div>
+                    <div>Ca làm việc</div>
+                    <div>Mức lương</div>
+                    <p class="suaxoa">
+                        <a>Sửa</a>
+                        <a>Xóa</a>
+                    </p>
+                    
+                </div>
+                <div class="shownvajax">
+
                 </div>
             </div>
                 
         </div>
+    <div class="right scroll" id="sanpham">
+        <div class="headsale">
+        <button class="menusale" onclick="openMenu('sptabcon','addpro')">Thêm nhân viên</button>
+        <button class="menusale" onclick="openMenu('sptabcon','listpro')">Danh sách</button>
+        </div>
+        <div class="sptabcon" id="addpro">
+            <div class="inputemp" id="inputpro">
+                <div>
+                    <span>Tên sản phẩm:</span><br>
+                    <input type="text" name="tensp" id="tensp">
+                </div>
+                <div >
+                    <span>Giá bán:</span><br>
+                    <input type="text" name="giabansp" id="giabansp">
+                </div>
+                <div>
+                    <span>Giảm giá:</span><br>
+                    <input type="text" name="giamgiasp" id="giamgiasp">
+                </div>
+                <div>
+                    <span>Mô tả:</span><br>
+                    <input type="text" name="motasp" id="motasp">
+                </div>
+                <div>
+                    <span>Ảnh minh họa:</span><br>
+                    <input type="file" name="amhsp" id="amhsp">
+                </div>
+            </div>
+            <button id="themsanpham">Thêm sản phẩm</button>
+        </div>
+        <div class="sptabcon" id="listpro">
+            <div class="shownv">
+                <p class="STT">MSP</p>
+                <div>Tên sản phẩm</div>
+                <div>Giá bán</div>
+                <div>Giảm giá</div>
+                <p class="motasp">Mô tả</p>
+                <p class="imgmh">Ảnh</p>
+                <p class="suaxoa">
+                    <!-- <a>Sửa</a>
+                    <a>Xóa</a> -->
+                </p>
+                
+            </div>
+            <div class="showspajax">
+            </div>
+            </div>
+        </div>
+                
 
+    </div>
     <div class="right scroll" id="baocao">
         <div id="chart_div"></div>
         <?php 
@@ -280,21 +403,29 @@ require_once ("model/loadinfo.php");
         </form>
     </div>
     <div id="xemavt">
-        <button class="exit" onclick="closeAny('xemavt')">x</button>
-        <?php
-        echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
-        ?>
+    <button class="exit" onclick="closeAny('xemavt')">x</button>
+    <?php
+    echo('<img src="'.$empavt.'" alt="ảnh người đăng">')
+    ?>
     </div>
 
     <div id="doiavt">
-        <form action="doiavt.php" method="post">
-
+        
+        <button class="exit" onclick="closeAny('doiavt')">x</button>
+        <form action="model/doiavt.php" method="post">
+            <input type="file" name="doiavt" id="nguonavt">
+            <input type="submit" value="Thay đổi" id="upanh" name="upanh">
+            <!-- <button id="upanh">Thay đổi</button> -->
         </form>
+        <!-- <button id="upanh">Thay đổi</button> -->
+       
     </div>
-
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script/chat.js"></script>
     <script src="script/adscript.js"></script>
+    <script src="script/adminadd.js"></script>
+    <script src="script/loadadmin.js"></script>
 </body>
 </html>

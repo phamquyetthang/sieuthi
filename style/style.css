@@ -31,17 +31,17 @@ button{
     position: fixed;
     left: 0px;
     top: 0px;
-    width: 270px;
+    width: 269px;
     bottom: 0px;
-    border-right: 1px solid gray;
+    border: 1px solid #00a1f2;
     background-color: #ddd;
 }
 .user{
     position: relative;
     width: 100%;
-    height: 200px;
-    border-bottom: 1px solid gray;
-    margin-bottom: 20px;
+    height: 230px;
+    border-bottom: 1px solid thistle;
+    margin-bottom: 0px;
 }
 .avtemp{
     position: absolute;
@@ -55,16 +55,31 @@ button{
 }
 .infoemp{
     position: absolute;
-    width: 100%;
-    height: 49px;
-    border-top: 1px solid gray;
-    top: 150px;
-    right: 0px;
+    width: 235px;
+    height: 40px;
+    border: 1px solid #00a1f2;
+    top: 160px;
+    right: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #eee;
 }
 .multichoose{
     width: 100%;
     height: 70px;
     font-size: 22px;
+    outline: none;
+    border: 1px solid #00a1f2;
+    margin-bottom: 2px;
+    background-color: #eee;
+    border-radius: 3px;
+    /* transition: 1s; */
+}
+#btnhometab{
+    background-color: #0481BF;
+}
+.multichoose:hover{
+    background-color: #0481BF;
 }
 .logout{
     position: fixed;
@@ -72,15 +87,21 @@ button{
     height: 40px;
     bottom: 0px;
     left: 90px;
+    background-color: #0481BF;
+    border-radius: 5px;
+    outline: none;
+    border: hidden;
 }
 .right{
-    position: relative;
+    position: fixed;
     background-color: #ddd;
     width: 1092px;
     margin-left: 271px;
-    height: 650px;
+    height: 649px;
     display: none;
-    /* overflow: hidden; */
+    border-top: #00a1f2 1px solid;
+    border-bottom: 1px solid #00a1f2;
+    overflow: hidden;
 }
 #hometab{
     overflow: hidden;
@@ -91,7 +112,7 @@ button{
     top: 0px;
     width: 757px;
     /* background-color: blue; */
-    border-right: 1px solid gray;
+    border-right: 1px solid thistle;
     overflow-y: auto;
     height: 560px;
     padding-bottom: 100px;
@@ -103,17 +124,19 @@ button{
 }
 .contentnew{
     position: relative;
-    border: 1px solid gray;
+    border: 1px solid thistle;
     width: 90%;
     margin: 25px;
     margin-bottom: 0px;
-   
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px gray;
 }
 .headnews{
     position: relative;
     width: 100%;
     height: 40px;
-    border-bottom: gray 1px solid;
+    border-bottom: thistle 1px solid;
 }
 .avtposter{ 
     position: absolute;
@@ -122,15 +145,19 @@ button{
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: 1px solid  gray;
+    border: 1px solid  thistle;
     overflow: hidden;
 }
 .nameposter{
     position: absolute;
+    top: 2px;
     left: 50px;
-    width: 200px;
+    /* width: 200px; */
     height: 18px;
-    border: 1px solid  gray;
+    border: hidden;
+    border-radius: 3px;
+    background-color: white;
+    padding: 2px;
 }
 .timepost{
     position: absolute;
@@ -138,33 +165,32 @@ button{
     bottom: 0px;
     width: 200px;
     height: 18px;
-    border: 1px solid  gray;
 }
 .titlenews{
     position: relative;
     width: 100%;
     height: 40px;
     padding: 3px;
-    border-bottom: gray 1px solid;
+    border-bottom: thistle 1px solid;
     font-size: 20px;
     font-weight: bold;
+    background-color: white;
 }
 .contentnews{
     position: relative;
     width: 100%;
     min-height: 40px;
     padding: 3px;
-    border-bottom: gray 1px solid;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 16px;
+    background-color: white;
 }
 .imagenews{
     position: relative;
     float: right;
     width: 260px;
     height: 260px;
-    padding: 3px;
-    border: gray 1px solid;
+    border: thistle 1px solid;
+    border-radius: 3px;
     font-size: 20px;
     font-weight: bold;
     overflow: hidden;
@@ -181,14 +207,29 @@ button{
 .locnews{
     position: fixed;
     bottom: 0px;
+    border-top: 1px thistle solid;
+    background-color: #ddd;
 }
 .locnewsc{
     position: relative;
     width: 379px;
     height: 40px;
+    border: hidden;
+    border-right: 1px thistle solid;
     outline: none;
     margin: 0px;
     float: left;
+}
+.locnewsc:hover{
+    height: 37px;
+    border-top: 4px #0481BF solid;
+}
+.rightofright{
+    position: fixed;
+    right: 0px;
+    height: 100%;
+    width: 335px;
+    background-color: #eee;
 }
 .oclock{
     font-family:'Times New Roman', serif;
@@ -196,7 +237,8 @@ button{
     position: fixed;
     top: 10px;
     right: 12px;
-    border: 1px solid gray;
+    border: 1px solid thistle;
+    background-color: white;
     border-radius: 5px;
 }
 #date{
@@ -226,40 +268,95 @@ button{
     width: 300px;
     margin: 0px;
 }
+.headchat{
+    position: absolute;
+    width: 295px;
+    height: 40px;
+    border: 1px solid thistle;
+    border-radius: 3px;
+    border-bottom: hidden;
+    overflow: hidden;
+}
+.avtchat{
+    width: 34px;
+    height: 34px;
+    border: hidden;
+    margin: 3px;
+    margin-bottom: 0px;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+}
+.namechat{
+    position: absolute;
+    top: 5px;
+    left: 45px;
+}
 .chat .messages{ 
-    border: 1px solid gray;
-    width: 279px;
-    height: 410px;
-    padding: 10px;
+    border: 1px solid thistle;
+    background-color:white;
+    width: 285px;
+    height: 400px;
     overflow-y: scroll;
+    margin-top: 40px;
+}
+.onemess{
+    width: 100%;
 
 }
-/* .chat .message a{
-    color: slategrey;
-
-} */
+.message{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 200px;
+    background-color: #ddd;
+    display: block;
+    padding-left: 2px;
+    border-radius: 5px;
+}
+.messr{
+    float: right;
+    margin-bottom: 10px;
+    background-color: #00a1f2;
+    right: 10px;
+    padding-right: 2px;
+}
 .chat .message p{
-    margin: 5px 0;
+    margin-top: 5px;
+    border-radius: 3px;
+    
+}
+.tdmess{
+    display: block;
+    right: 0px;
+    width: 100%;
+}
+.tdmess span{
+    float: right;
+}
+.ndmess{
+    float: right;
 }
 .chat .entry{ 
-    width: 289px;
-    height: 40px;
+    width: 286px;
+    height: 30px;
     padding: 5px;
     margin-top: 2px;
     /* margin-right: 3px; */
+    margin-bottom: 10px;
 }
 .leftinfo{
     position: relative;
-    width: 500px;
+    width: 490px;
     height: 100%;
-    background-color: aqua;
+    background-color: #ddd;
+    border-right: #00a1f2 1px solid;
     float: left;
 }
 .rightinfo{
     position: relative;
     width: 590px;
     height: 100%;
-    background-color: blueviolet;
+    background-color: #ddd;
 }
 .avtinfo{
     position: relative;
@@ -306,6 +403,7 @@ button{
     margin-top: 15px;
     width: 500px;
     border: #00a1f2 1px solid;
+    background-color: #eee;
 }
 .moreinfo div{
     display: inline-block;
